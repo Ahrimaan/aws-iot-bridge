@@ -1,7 +1,7 @@
 const mqtt = require('mqtt')
-const request = require('request');
 const client = mqtt.connect('mqtt://192.168.50.225:1883')
-const apiUrl = 'https://u4u945u70c.execute-api.eu-central-1.amazonaws.com/prod/'
+
+
 
 client.on('connect', () => {
     console.log(`connected to Server`)
@@ -19,13 +19,22 @@ client.on('message', (topic, message) => {
         "power": mqttMessage.ENERGY.Power,
         "current": mqttMessage.ENERGY.Current,
     };
-    request.post(apiUrl, {
-        body: JSON.stringify(requestBody),
-    }, (error, response) => {
-        if (error) {
-            console.error(error);
-        } else {
-            console.log(response.statusCode);
+    const httpOptions =  {
+        host:'https://u4u945u70c.execute-api.eu-central-1.amazonaws.com',
+        path:'/prod',
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Content-Length': requestBody.length
         }
-    })
+    } 
+    let request = http.request(httpOptions, response => {
+        if(response.statusCode != 200){
+            console.error(`ERROR: Response ${response.statusMessage}`)
+        }
+        else{
+            console.log('Data saved');
+        }
+    });
+    request.write(requestBody);
 });

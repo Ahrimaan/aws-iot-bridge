@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mqtt": "^4.2.8",
-    "request":"2.88.2"
+    "mqtt": "4.2.8"
   }
 }
