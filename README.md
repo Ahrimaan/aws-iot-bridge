@@ -2,6 +2,7 @@
 
 This PoC shows, how to collect data (in this example from a smarthome mqtt) , store it in S3 and let Glue crawl trough the data.
 
+![Architecture](https://github.com/Ahrimaan/aws-iot-bridge/blob/main/architecture.jpg?raw=true)
 
 You can find the whole aws backend stack build with [AWS-CDK](https://aws.amazon.com/de/cdk/) in `./aws/lib`
 
