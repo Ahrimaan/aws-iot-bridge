@@ -1,6 +1,7 @@
 # AWS IoT Ingest Demo
 
 This PoC shows, how to collect data (in this example from a smarthome mqtt) , store it in S3 and let Glue crawl trough the data.
+Most of the stack is generated within the AWS CDK, Quicksight however has to be added manually
 
 ![Architecture](https://github.com/Ahrimaan/aws-iot-bridge/blob/main/architecture.jpg?raw=true)
 
