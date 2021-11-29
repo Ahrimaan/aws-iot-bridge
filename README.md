@@ -3,6 +3,12 @@
 This PoC shows, how to collect data (in this example from a smarthome mqtt) , store it in S3 and let Glue crawl trough the data.
 Most of the stack is generated within the AWS CDK, Quicksight however has to be added manually
 
+Folder "aws/infrastructure" -> Infrastructure in the cloud
+
+Folder "mqtt-relay" -> local docker image
+(HINT: mqtt-relay works only with a local mqtt server and Tasmota comaptible smart plugs, so this code is just used for demo purposes)
+
+
 ![Architecture](https://github.com/Ahrimaan/aws-iot-bridge/blob/main/architecture.jpg?raw=true)
 
 You can find the whole aws backend stack build with [AWS-CDK](https://aws.amazon.com/de/cdk/) in `./aws/lib`
